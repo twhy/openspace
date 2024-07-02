@@ -2,10 +2,7 @@ import { createHash, randomBytes } from 'crypto';
 
 const username = 'twhy';
 
-function pow(nzero: number = 4) {
-  if (nzero < 1) {
-    throw new Error('Invalid n zeros');
-  }
+function pow(nzero: number = 0) {
   const zeros = new Array(nzero).fill(0).join('');
   const start = +new Date();
   while (true) {
