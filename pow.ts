@@ -10,12 +10,12 @@ function pow(nzero: number = 4) {
   const start = +new Date();
   while (true) {
     const nonce = randomBytes(30).toString('hex');
-    const data = username + nonce
+    const data = username + nonce;
     const hash = createHash('sha256').update(data).digest('hex');
     if (hash.startsWith(zeros)) {
       const end = +new Date();
       const time = end - start;
-      return { time, data, hash }
+      return { time, data, hash };
     }
   }
 }
