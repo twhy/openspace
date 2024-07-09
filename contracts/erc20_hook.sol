@@ -77,7 +77,7 @@ contract BaseERC20 {
         transferFrom(_from, _to, _value);
 
         if (isContract(_to)) {
-            require(TokenRecipient(_to).tokensReceived(msg.sender, _value), "No tokensReceived");
+            require(TokenRecipient(_to).tokensReceived(_from, _value), "No tokensReceived");
         }
 
         return true;
