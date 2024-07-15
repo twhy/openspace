@@ -8,26 +8,26 @@ const client = createPublicClient({
   transport: http(), 
 });
 
-async function getToken(i: number) {
+async function getToken(id: number) {
   const owner = await client.readContract({
     address: '0x0483b0dfc6c78062b9e999a82ffb795925381415',
     abi: ORBIT_NFT_ABI,
     functionName: 'ownerOf',
-    args: [1]
+    args: [id]
   });
 
   const uri = await client.readContract({
     address: '0x0483b0dfc6c78062b9e999a82ffb795925381415',
     abi: ORBIT_NFT_ABI,
     functionName: 'tokenURI',
-    args: [1]
+    args: [id]
   });
 
   return { owner, uri }
 }
 
 async function main() {
-  const token = await getToken(1);
+  const token = await getToken(2);
   console.log(token.owner, token.uri);
 }
 
